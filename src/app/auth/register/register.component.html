@@ -17,5 +17,5 @@
     <label for="register-admin">Register as admin:</label>
     <input id="register-admin" type="checkbox" formControlName="isAdmin" />
   </fieldset>
-  <button>Submit</button>
+  <button [disabled]="registerForm.invalid">Submit</button>
 </form>
