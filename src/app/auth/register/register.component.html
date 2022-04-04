@@ -2,8 +2,18 @@
   <fieldset>
     <label for="register-email">Email:</label>
     <input id="register-email" type="text" formControlName="email" />
+    <ng-container *ngIf="registerForm.controls['email'].touched">
+      <div *ngIf="registerForm.controls['email'].errors?.['required']">Pole wymagane</div>
+      <div *ngIf="registerForm.controls['email'].errors?.['email']">Podaj prawidłowy adres email</div>
+    </ng-container>
     <label for="register-password">Password:</label>
     <input id="register-password" type="password" formControlName="password" />
+    <ng-container *ngIf="registerForm.controls['password'].touched">
+      <div *ngIf="registerForm.controls['password'].errors?.['required']">Pole wymagane</div>
+      <div *ngIf="registerForm.controls['password'].errors?.['minlength']">
+        Minimalna długość hasła wynosi {{registerForm.controls['password'].errors?.['minlength'].requiredLength}} znaków
+      </div>
+    </ng-container>
     <label for="register-admin">Register as admin:</label>
     <input id="register-admin" type="checkbox" formControlName="isAdmin" />
   </fieldset>
