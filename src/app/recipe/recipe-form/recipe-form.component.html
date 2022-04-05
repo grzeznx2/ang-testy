@@ -1,1 +1,35 @@
-<p>recipe-form works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <label for="recipe-name">Nazwa:</label>
+    <input id="recipe-name" type="text" formControlName="name" />
+    <ng-container *ngIf="recipeForm.controls['name'].touched">
+      <div *ngIf="recipeForm.controls['name'].errors?.['required']">Pole wymagane</div>
+    </ng-container>
+    <label for="recipe-description">Opis:</label>
+    <textarea id="recipe-description" type="description" formControlName="description"></textarea>
+    <ng-container *ngIf="recipeForm.controls['description'].touched">
+      <div *ngIf="recipeForm.controls['description'].errors?.['required']">Pole wymagane</div>
+    </ng-container>
+    <ng-container formArrayName="ingredients">
+      <ng-container *ngFor="let ingredientForm of ingredients.controls; let index = index">
+        <div [formGroupName]="index">
+          <label>
+            Nazwa:
+            <input type="text" formControlName="name" />
+            <p *ngIf="">Pole wymagane</p>
+          </label>
+          <label>
+            Ilość:
+            <input type="number" formControlName="amount" />
+          </label>
+          <label>
+            Jednostka:
+            <input type="text" formControlName="unit" />
+          </label>
+        </div>
+      </ng-container>
+    </ng-container>
+    <button (click)="addIngredient()">Dodaj składnik</button>
+  </fieldset>
+  <button [disabled]="recipeForm.invalid">Submit</button>
+</form>
