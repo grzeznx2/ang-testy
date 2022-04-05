@@ -32,5 +32,5 @@
     </ng-container>
     <button (click)="addIngredient()">Dodaj składnik</button>
   </fieldset>
-  <button [disabled]="recipeForm.invalid">Submit</button>
+  <button [disabled]="recipeForm.invalid || isLoading">Submit</button>
 </form>

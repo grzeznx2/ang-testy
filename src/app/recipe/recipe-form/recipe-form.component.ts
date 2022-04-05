@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-form',
@@ -9,8 +10,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class RecipeFormComponent implements OnInit {
 
   public recipeForm!: FormGroup
-
-  constructor(private formBuilder: FormBuilder) { }
+  public isLoading = false
+  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService) { }
 
   get ingredients(){
     return this.recipeForm.controls['ingredients'] as FormArray
@@ -30,7 +31,8 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.recipeForm.value)
+    this.isLoading = true
+    this.recipeService.createRecipe(this.recipeForm.value).subscribe(()=>this.isLoading = false)
   }
 
   private _initializeForm(){
