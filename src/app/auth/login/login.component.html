@@ -1,1 +1,19 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <label for="login-email">Email:</label>
+    <input id="login-email" type="text" formControlName="email" />
+    <ng-container *ngIf="loginForm.controls['email'].touched">
+      <div *ngIf="loginForm.controls['email'].errors?.['required']">Pole wymagane</div>
+      <div *ngIf="loginForm.controls['email'].errors?.['email']">Podaj prawidłowy adres email</div>
+    </ng-container>
+    <label for="login-password">Password:</label>
+    <input id="login-password" type="password" formControlName="password" />
+    <ng-container *ngIf="loginForm.controls['password'].touched">
+      <div *ngIf="loginForm.controls['password'].errors?.['required']">Pole wymagane</div>
+      <div *ngIf="loginForm.controls['password'].errors?.['minlength']">
+        Minimalna długość hasła wynosi {{loginForm.controls['password'].errors?.['minlength'].requiredLength}} znaków
+      </div>
+    </ng-container>
+  </fieldset>
+  <button [disabled]="loginForm.invalid">Submit</button>
+</form>
