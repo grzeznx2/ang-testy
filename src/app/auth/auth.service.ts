@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, take, tap } from 'rxjs';
 import { Role, UserPayload } from './types';
 
@@ -10,7 +11,7 @@ export class AuthService {
 
   private user = new BehaviorSubject<{roles: Role[], email: string} | null>(null)
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this._initializeUser()
    }
 
@@ -19,12 +20,16 @@ export class AuthService {
   }
 
   setUser(user: {roles: Role[], email: string} | null){
+    let destination: string
     if(user === null){
       localStorage.removeItem('user')
+      destination = 'auth'
     }else{
       localStorage.setItem('user', JSON.stringify(user))
+      destination = 'dashboard'
     }
     this.user.next(user)
+    this.router.navigate([destination])
   }
 
   register(user: UserPayload){
