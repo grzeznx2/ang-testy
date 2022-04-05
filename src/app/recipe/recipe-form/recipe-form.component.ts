@@ -25,6 +25,10 @@ export class RecipeFormComponent implements OnInit {
     this.ingredients.push(this._createIngredient())
   }
 
+  removeIngredient(index: number) {
+    this.ingredients.removeAt(index)
+  }
+
   onSubmit(){
     console.log(this.recipeForm.value)
   }
