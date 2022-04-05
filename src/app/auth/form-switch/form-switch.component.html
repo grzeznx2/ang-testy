@@ -1,0 +1,6 @@
+<div>
+  <h2>{{ isRegisterMode ? 'Rejestracja' : 'Logowanie' }}</h2>
+  <app-register *ngIf="isRegisterMode"></app-register>
+  <app-login *ngIf="!isRegisterMode"></app-login>
+  <button (click)="toggleAuthMode()">{{ isRegisterMode ? 'Logowanie' : 'Rejestracja' }}</button>
+</div>
