@@ -27,4 +27,8 @@ export class AuthService {
   login(user: UserPayload){
     return this.http.get<UserPayload>(`http://localhost:3000/users?email=${user.email}&password=${user.password}`).pipe(tap((res)=>this.setUser(res)))
    }
+
+   logout(){
+     this.setUser(null)
+   }
 }
