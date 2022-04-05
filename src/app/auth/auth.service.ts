@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, take, tap } from 'rxjs';
 import { Role, UserPayload } from './types';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   login(user: UserPayload){
-    return this.http.get<UserPayload>(`http://localhost:3000/users?email=${user.email}&password=${user.password}`).pipe(tap((res)=>this.setUser(res)))
+    return this.http.get<UserPayload[]>(`http://localhost:3000/users?email=${user.email}&password=${user.password}`).pipe(take(1), tap((res)=>this.setUser(res[0])))
    }
 
    logout(){
