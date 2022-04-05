@@ -24,4 +24,7 @@ export class AuthService {
    return this.http.post('http://localhost:3000/users', user).pipe(tap(()=>this.setUser(user)))
   }
 
+  login(user: UserPayload){
+    return this.http.get<UserPayload>(`http://localhost:3000/users?email=${user.email}&password=${user.password}`).pipe(tap((res)=>this.setUser(res)))
+   }
 }
