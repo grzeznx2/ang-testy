@@ -10,13 +10,20 @@ export class AuthService {
 
   private user = new BehaviorSubject<{roles: Role[], email: string} | null>(null)
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this._initializeUser()
+   }
 
   get user$(){
     return this.user.asObservable()
   }
 
   setUser(user: {roles: Role[], email: string} | null){
+    if(user === null){
+      localStorage.removeItem('user')
+    }else{
+      localStorage.setItem('user', JSON.stringify(user))
+    }
     this.user.next(user)
   }
 
@@ -30,5 +37,12 @@ export class AuthService {
 
    logout(){
      this.setUser(null)
+   }
+
+   private _initializeUser(){
+   const user =  localStorage.getItem('user')
+   if(user){
+     this.setUser(JSON.parse(user))
+   }
    }
 }
