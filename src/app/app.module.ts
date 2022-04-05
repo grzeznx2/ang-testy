@@ -7,9 +7,10 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormSwitchComponent } from './auth/form-switch/form-switch.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
