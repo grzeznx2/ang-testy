@@ -11,9 +11,10 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
+import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent, RecipeListComponent],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
