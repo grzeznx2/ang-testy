@@ -1,36 +1,61 @@
-<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-  <fieldset>
-    <label for="recipe-name">Nazwa:</label>
-    <input id="recipe-name" type="text" formControlName="name" />
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="form recipe-form">
+  <div class="form__group">
+    <label class="form__label" for="recipe-name">Nazwa:</label>
+    <input class="form__input" id="recipe-name" type="text" formControlName="name" />
     <ng-container *ngIf="recipeForm.controls['name'].touched">
-      <div *ngIf="recipeForm.controls['name'].errors?.['required']">Pole wymagane</div>
+      <div class="form__error" *ngIf="recipeForm.controls['name'].errors?.['required']">Pole wymagane</div>
     </ng-container>
-    <label for="recipe-description">Opis:</label>
-    <textarea id="recipe-description" type="description" formControlName="description"></textarea>
+  </div>
+  <div class="form__group">
+    <label class="form__label" for="recipe-description">Opis:</label>
+    <textarea class="form__input" id="recipe-description" type="description" formControlName="description"></textarea>
     <ng-container *ngIf="recipeForm.controls['description'].touched">
-      <div *ngIf="recipeForm.controls['description'].errors?.['required']">Pole wymagane</div>
+      <div class="form__error" *ngIf="recipeForm.controls['description'].errors?.['required']">Pole wymagane</div>
     </ng-container>
-    <ng-container formArrayName="ingredients">
-      <ng-container *ngFor="let ingredientForm of ingredients.controls; let index = index">
-        <div [formGroupName]="index">
-          <label>
-            Nazwa:
-            <input type="text" formControlName="name" />
-            <p *ngIf="">Pole wymagane</p>
-          </label>
-          <label>
-            Ilość:
-            <input type="number" formControlName="amount" />
-          </label>
-          <label>
-            Jednostka:
-            <input type="text" formControlName="unit" />
-          </label>
-        </div>
-        <button (click)="removeIngredient(index)">X</button>
-      </ng-container>
+  </div>
+  <ng-container formArrayName="ingredients" class="recipe-form__ingredients-list">
+    <ng-container *ngFor="let ingredientForm of ingredients.controls; let index = index">
+      <div [formGroupName]="index" class="recipe-form__ingredient">
+        <label class="form__label">
+          Nazwa:
+          <input class="form__input" type="text" formControlName="name" />
+          <p *ngIf="">Pole wymagane</p>
+        </label>
+        <label class="form__label">
+          Ilość:
+          <input class="form__input" type="number" formControlName="amount" />
+        </label>
+        <label class="form__label">
+          Jednostka:
+          <input class="form__input" type="text" formControlName="unit" />
+        </label>
+        <button (click)="removeIngredient(index)" class="recipe-form__delete-button">X</button>
+      </div>
     </ng-container>
-    <button (click)="addIngredient()">Dodaj składnik</button>
-  </fieldset>
-  <button [disabled]="recipeForm.invalid || isLoading">Submit</button>
+  </ng-container>
+  <div class="recipe-form__button-wrapper">
+    <div (click)="addIngredient()" class="button button--primary recipe-form__add-button">Dodaj składnik</div>
+    <button [disabled]="recipeForm.invalid || isLoading" class="button button--primary">Dodaj przepis</button>
+  </div>
 </form>
+<app-modal *ngIf="isModalOpen">
+  <div class="rating-modal">
+    <h3 class="rating-modal__title">Oceń przepis</h3>
+    <div class="rating-modal__stars">
+      <button
+        class="star rating-modal__star"
+        *ngFor="let num of [1, 2, 3, 4, 5]"
+        ngClass="{{ num <= rate ? 'star--active' : '' }}"
+        (click)="handleRateClick(num)"
+        (mouseenter)="setCurrentRate(num)">
+        &#9733;
+      </button>
+    </div>
+    <div class="rating-modal__buttons">
+      <button class="button button--primary" (click)="createRecipe()">
+        {{ isLoading ? 'Zapisywanie...' : 'Zapisz' }}
+      </button>
+      <button class="button button--primary-inverse" (click)="toggleModal()">Anuluj</button>
+    </div>
+  </div>
+</app-modal>

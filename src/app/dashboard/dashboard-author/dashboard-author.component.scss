@@ -1,0 +1,16 @@
+.dashboard {
+  &__links {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-right: 2.5rem;
+    background-color: transparent;
+    border: none;
+    font-size: 3rem;
+    color: var(--color-blue-30);
+    cursor: pointer;
+  }
+}

@@ -12,9 +12,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
+import { RecipeItemComponent } from './recipe/recipe-item/recipe-item.component';
+import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.component';
+import { DashboardAuthorComponent } from './dashboard/dashboard-author/dashboard-author.component';
+import { DashboardUserComponent } from './dashboard/dashboard-user/dashboard-user.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent, RecipeListComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent, RecipeListComponent, RecipeItemComponent, RecipeDetailsComponent, DashboardAuthorComponent, DashboardUserComponent, ModalComponent],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

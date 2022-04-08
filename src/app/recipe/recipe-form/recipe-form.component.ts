@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalService } from 'src/app/shared/modal/modal.service';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -9,9 +10,13 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeFormComponent implements OnInit {
 
+  // @ViewChild('modal') modal!: ElementRef<HTMLDivElement>
+  public rate = 3
+  public rateClicked = false
   public recipeForm!: FormGroup
   public isLoading = false
-  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService) { }
+  public isModalOpen = true
+  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private modalService: ModalService) { }
 
   get ingredients(){
     return this.recipeForm.controls['ingredients'] as FormArray
@@ -22,6 +27,21 @@ export class RecipeFormComponent implements OnInit {
     console.log(this.recipeForm)
   }
 
+toggleModal(){
+  this.isModalOpen = !this.isModalOpen
+}
+
+  handleRateClick(rate: number){
+    this.rateClicked = true
+    this.rate = rate
+  }
+
+  setCurrentRate(rate: number){
+    if(this.rateClicked) return
+    this.rate = rate
+    console.log(this.rate)
+  }
+
   addIngredient(){
     this.ingredients.push(this._createIngredient())
   }
@@ -30,9 +50,19 @@ export class RecipeFormComponent implements OnInit {
     this.ingredients.removeAt(index)
   }
 
-  onSubmit(){
+  createRecipe(){
+
     this.isLoading = true
-    this.recipeService.createRecipe(this.recipeForm.value).subscribe(()=>this.isLoading = false)
+    this.recipeService.createRecipe({...this.recipeForm.value, rate: this.rate}).subscribe(()=>
+    {
+      this.isLoading = false
+      this.toggleModal()
+    }
+    )
+  }
+
+  onSubmit(){
+    this.toggleModal()
   }
 
   private _initializeForm(){

@@ -26,7 +26,13 @@ export class AuthService {
       destination = 'auth'
     }else{
       localStorage.setItem('user', JSON.stringify(user))
-      destination = 'dashboard'
+      if(user.roles.includes('AUTHOR')){
+
+        destination = 'dashboard/author/add-recipe'
+      }else{
+
+        destination = 'dashboard/user/recipe'
+      }
     }
     this.user.next(user)
     this.router.navigate([destination])

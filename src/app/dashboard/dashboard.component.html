@@ -1,3 +1,8 @@
-<p>dashboard works!</p>
-<app-recipe-list></app-recipe-list>
-<app-recipe-form *ngIf="isAuthor"></app-recipe-form>
+<div class="dashboard">
+  <div class="dashboard__part dashboard__left">
+    <app-recipe-list></app-recipe-list>
+  </div>
+  <div class="dashboard__part dashboard__right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

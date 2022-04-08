@@ -1,50 +1,136 @@
 {
   "recipes": [
     {
-      "id": 1,
-      "name": "kluski z twarogiem",
-      "description": [
-        "Przygotowujemy garnek wody i solimy go",
-        "Gotujemy wodę",
-        "Gotujemy makaron",
-        "Do ugatowanego makaronu dodajemy twaróg"
-      ],
-      "ingriedients:": [
+      "name": "Sałatka",
+      "description": "Zrobić ją trzeba",
+      "ingredients": [
         {
-          "name": "makaron",
-          "value": "250g"
-        },
-        {
-          "name": "sól",
-          "value": "szczypta"
-        },
-        {
-          "name": "twaróg",
-          "value": "150g"
+          "name": "Sałata",
+          "amount": 2,
+          "unit": "sztuki"
         }
       ],
-      "rating": 4
+      "rate": 3,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "jajecznica",
-      "description": [
-        "Rozpuszczamy masło na patelni",
-        "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
-        "Mieszamy rozbite jajka i czekamy na jajecznice"
-      ],
-      "ingriedients:": [
+      "name": "Majonez",
+      "description": "Zrobić z jajek",
+      "ingredients": [
         {
-          "name": "jajka",
-          "value": "3 szt."
-        },
-        {
-          "name": "masło",
-          "value": "łyżeczka"
+          "name": "Jajka",
+          "amount": 15,
+          "unit": ""
         }
       ],
-      "rating": 5
+      "rate": 5,
+      "id": 2
+    },
+    {
+      "name": "",
+      "description": "",
+      "ingredients": [
+        {
+          "name": "",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 2,
+      "id": 3
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "abc@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER"
+      ],
+      "id": 1
+    },
+    {
+      "email": "abc@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 2
+    },
+    {
+      "email": "df@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 3
+    },
+    {
+      "email": "1234@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 4
+    },
+    {
+      "email": "1@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER"
+      ],
+      "id": 5
+    },
+    {
+      "email": "12@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Nowy przepis",
+      "description": "Pyszniutkie",
+      "ingredients": [
+        {
+          "name": "Mąka",
+          "amount": 2,
+          "unit": "kg"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "email": "555@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 8
+    },
+    {
+      "email": "ad@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 9
+    },
+    {
+      "email": "adad@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER",
+        "AUTHOR"
+      ],
+      "id": 10
+    }
+  ]
 }

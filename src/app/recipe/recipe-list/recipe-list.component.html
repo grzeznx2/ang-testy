@@ -1,3 +1,12 @@
-<div *ngFor="let recipe of recipes$ | async">
-  {{ recipe.name }}
+<input type="search" [formControl]="query" class="form__input" />
+<select [formControl]="sort" class="form__input">
+  <option value="A-Z">A-Z</option>
+  <option value="Z-A">Z-A</option>
+</select>
+<div class="recipe-list">
+  <app-recipe-item
+    *ngFor="let recipe of recipes$ | async"
+    [name]="recipe.name"
+    [id]="recipe.id"
+    [rate]="recipe.rate"></app-recipe-item>
 </div>

@@ -1,0 +1,6 @@
+<div>
+  {{ (recipe$ | async) ? (recipe$ | async)?.name : 'Wybierz przepis, którego dane chcesz wyświetlić' }}
+  {{ (recipe$ | async)?.name }}
+  {{ (recipe$ | async)?.description }}
+  {{ (recipe$ | async)?.id }}
+</div>
