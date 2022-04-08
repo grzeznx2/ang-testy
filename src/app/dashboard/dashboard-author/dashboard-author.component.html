@@ -1,0 +1,5 @@
+<div class="dashboard__links">
+  <a class="dashboard__link" routerLink="add-recipe">Dodaj przepis</a>
+  <a class="dashboard__link" routerLink="recipe/{{ (recipe$ | async)?.id }}">Szczegóły</a>
+</div>
+<router-outlet></router-outlet>

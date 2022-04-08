@@ -1,7 +1,7 @@
-<header>
-  <h1>Przepiśnik</h1>
+<header class="header">
+  <h1 class="header__title">Przepiśnik</h1>
   <ng-container *ngIf="user">
-    <p>Witaj, {{ user.email }}!</p>
-    <button (click)="logout()">Wyloguj</button>
+    <p class="header__user-greeting">Witaj, {{ user.email }}!</p>
+    <button (click)="logout()" class="button button--primary-inverse">Wyloguj</button>
   </ng-container>
 </header>

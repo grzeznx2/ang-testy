@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { AuthService } from '../auth/auth.service';
-import { Role } from '../auth/types';
-import { RecipeService } from '../recipe/recipe.service';
-import { Recipe } from '../recipe/types';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Role } from 'src/app/auth/types';
+import { RecipeService } from 'src/app/recipe/recipe.service';
+import { Recipe } from 'src/app/recipe/types';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-dashboard-author',
+  templateUrl: './dashboard-author.component.html',
+  styleUrls: ['./dashboard-author.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardAuthorComponent implements OnInit, OnDestroy {
 
   public user: {email: string, roles: Role[]} | null = null
   recipe$!: Observable<Recipe>
