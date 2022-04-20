@@ -17,9 +17,10 @@ import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.c
 import { DashboardAuthorComponent } from './dashboard/dashboard-author/dashboard-author.component';
 import { DashboardUserComponent } from './dashboard/dashboard-user/dashboard-user.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { StarsRatingComponent } from './shared/stars-rating/stars-rating.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent, RecipeListComponent, RecipeItemComponent, RecipeDetailsComponent, DashboardAuthorComponent, DashboardUserComponent, ModalComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent, FormSwitchComponent, HeaderComponent, DashboardComponent, RecipeFormComponent, RecipeListComponent, RecipeItemComponent, RecipeDetailsComponent, DashboardAuthorComponent, DashboardUserComponent, ModalComponent, StarsRatingComponent],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

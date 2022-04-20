@@ -41,16 +41,7 @@
 <app-modal *ngIf="isModalOpen">
   <div class="rating-modal">
     <h3 class="rating-modal__title">Oceń przepis</h3>
-    <div class="rating-modal__stars">
-      <button
-        class="star rating-modal__star"
-        *ngFor="let num of [1, 2, 3, 4, 5]"
-        ngClass="{{ num <= rate ? 'star--active' : '' }}"
-        (click)="handleRateClick(num)"
-        (mouseenter)="setCurrentRate(num)">
-        &#9733;
-      </button>
-    </div>
+    <app-stars-rating [rate]="rate" [maxRate]="9" (starSelected)="setCurrentRate($event)"></app-stars-rating>
     <div class="rating-modal__buttons">
       <button class="button button--primary" (click)="createRecipe()">
         {{ isLoading ? 'Zapisywanie...' : 'Zapisz' }}

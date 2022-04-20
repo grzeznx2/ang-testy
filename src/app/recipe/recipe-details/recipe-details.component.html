@@ -1,6 +1,22 @@
-<div>
-  {{ (recipe$ | async) ? (recipe$ | async)?.name : 'Wybierz przepis, którego dane chcesz wyświetlić' }}
-  {{ (recipe$ | async)?.name }}
-  {{ (recipe$ | async)?.description }}
-  {{ (recipe$ | async)?.id }}
+<div class="recipe-details" *ngIf="recipe$ | async as recipe; else message">
+  <div class="recipe-details__header">
+    <h2 class="recipe-details__title">{{ recipe.name }}</h2>
+    <div class="recipe-details__stars">
+      <app-stars-rating [rate]="recipe.rate" [maxRate]="5" [readonly]="true"></app-stars-rating>
+    </div>
+  </div>
+  <div class="recipe-details__main-content">
+    <p class="recipe-details__description">{{ recipe.description }}</p>
+    <ul class="recipe-details__ingredients">
+      <li class="recipe-details__ingredient" *ngFor="let ing of recipe.ingredients; let i = index">
+        {{ i + 1 }}.
+        <span>{{ ing.name }}</span>
+        <span>{{ ing.amount }}</span>
+        <span>{{ ing.unit }}</span>
+      </li>
+    </ul>
+  </div>
 </div>
+<ng-template #message>
+  <p>Wybierz przepis, którego dane chcesz wyświetlić</p>
+</ng-template>

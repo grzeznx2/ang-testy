@@ -38,6 +38,107 @@
       ],
       "rate": 2,
       "id": 3
+    },
+    {
+      "name": "",
+      "description": "",
+      "ingredients": [
+        {
+          "name": "",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 5,
+      "id": 4
+    },
+    {
+      "name": "",
+      "description": "",
+      "ingredients": [
+        {
+          "name": "",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 1,
+      "id": 5
+    },
+    {
+      "name": "Nowy przepis",
+      "description": "Hurra",
+      "ingredients": [
+        {
+          "name": "Ale",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 5,
+      "id": 6
+    },
+    {
+      "name": "Sałatka",
+      "description": "Umyć kurczaka i pociąć sałatę.",
+      "ingredients": [
+        {
+          "name": "Sałata",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "name": "Mąka",
+          "amount": 2,
+          "unit": "kg"
+        },
+        {
+          "name": "Cukier",
+          "amount": 3,
+          "unit": "łyżeczki"
+        }
+      ],
+      "rate": 5,
+      "id": 7
+    },
+    {
+      "name": "dsf",
+      "description": "sdf",
+      "ingredients": [
+        {
+          "name": "sdf",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 5,
+      "id": 8
+    },
+    {
+      "name": "sdf",
+      "description": "sdf",
+      "ingredients": [
+        {
+          "name": "sdf",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 2,
+      "id": 9
+    },
+    {
+      "name": "Jedzonki",
+      "description": "sdf",
+      "ingredients": [
+        {
+          "name": "sdf",
+          "amount": 0,
+          "unit": ""
+        }
+      ],
+      "rate": 4,
+      "id": 10
     }
   ],
   "users": [
@@ -131,6 +232,14 @@
         "AUTHOR"
       ],
       "id": 10
+    },
+    {
+      "email": "artur@wp.pl",
+      "password": "123123123",
+      "roles": [
+        "USER"
+      ],
+      "id": 11
     }
   ]
 }

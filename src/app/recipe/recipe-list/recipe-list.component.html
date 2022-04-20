@@ -1,8 +1,16 @@
-<input type="search" [formControl]="query" class="form__input" />
-<select [formControl]="sort" class="form__input">
-  <option value="A-Z">A-Z</option>
-  <option value="Z-A">Z-A</option>
-</select>
+<form class="form form--flex">
+  <div class="form__group">
+    <label class="form__label">Wyszukaj przepis</label>
+    <input type="search" [formControl]="query" class="form__input" />
+  </div>
+  <div class="form__group">
+    <label class="form__label">Sortuj</label>
+    <select [formControl]="sort" class="form__input">
+      <option value="A-Z">A-Z</option>
+      <option value="Z-A">Z-A</option>
+    </select>
+  </div>
+</form>
 <div class="recipe-list">
   <app-recipe-item
     *ngFor="let recipe of recipes$ | async"

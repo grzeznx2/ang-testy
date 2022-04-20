@@ -15,7 +15,7 @@ export class RecipeFormComponent implements OnInit {
   public rateClicked = false
   public recipeForm!: FormGroup
   public isLoading = false
-  public isModalOpen = true
+  public isModalOpen = false
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private modalService: ModalService) { }
 
   get ingredients(){
@@ -27,20 +27,24 @@ export class RecipeFormComponent implements OnInit {
     console.log(this.recipeForm)
   }
 
-toggleModal(){
-  this.isModalOpen = !this.isModalOpen
-}
-
-  handleRateClick(rate: number){
-    this.rateClicked = true
-    this.rate = rate
-  }
-
   setCurrentRate(rate: number){
-    if(this.rateClicked) return
     this.rate = rate
-    console.log(this.rate)
   }
+
+  toggleModal(){
+    this.isModalOpen = !this.isModalOpen
+  }
+
+  // handleRateClick(rate: number){
+  //   this.rateClicked = true
+  //   this.rate = rate
+  // }
+
+  // setCurrentRate(rate: number){
+  //   if(this.rateClicked) return
+  //   this.rate = rate
+  //   console.log(this.rate)
+  // }
 
   addIngredient(){
     this.ingredients.push(this._createIngredient())

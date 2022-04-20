@@ -1,0 +1,11 @@
+<div>
+  <button
+    class="star rating-modal__star"
+    *ngFor="let num of stars"
+    ngClass="{{ num <= rate ? 'star--active' : '' }}"
+    [ngStyle]="{ 'font-size.rem': size }"
+    (click)="onClick(num)"
+    (mouseenter)="onMouseEnter(num)">
+    &#9733;
+  </button>
+</div>

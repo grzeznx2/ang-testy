@@ -1,0 +1,10 @@
+.star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  // font-size: 5rem;
+
+  &--active {
+    color: orangered;
+  }
+}

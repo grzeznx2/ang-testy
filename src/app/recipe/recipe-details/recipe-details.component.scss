@@ -1,0 +1,31 @@
+.recipe-details {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 2.6rem;
+  }
+
+  &__main-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__description {
+    font-size: 1.8rem;
+  }
+
+  &__ingredients {
+  }
+  &__ingredient {
+    font-size: 1.8rem;
+
+    & span {
+      margin: 0 0.5rem 0.5rem 0.5rem;
+    }
+  }
+}
